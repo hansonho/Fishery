@@ -1,0 +1,60 @@
+.photographypage{
+    background-color: #000;
+}
+.photographypage .photography-info{
+    margin: 40px 0;
+}
+.photographypage .photography-info .item{
+    position: relative;
+    transition: 2s;
+}
+.photographypage .photography-info .item.hide{
+    opacity: 0;
+    transition: 2s;
+}
+.photographypage .photography-info .item.hide.show{
+    position: fixed;
+    opacity: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+}
+.photographypage .photography-info .item span{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #fff;
+    z-index: 99;
+    display: none;
+}
+.photographypage .photography-info .item .videoItem{
+    width: 100%;
+    opacity: 1;
+    padding: 10px;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .photographypage .photography-info{
+        margin: 50px 0;
+    }
+    .photographypage .photography-info .item span{
+        right: 30px;
+        top: 30px;
+        font-size: 40px;
+    }
+    .photographypage .photography-info .item .videoItem{
+        padding: 30px;
+    }
+}
+@media screen and (min-width: 1080px) and (max-width: 1080px){
+    .photographypage .photography-info{
+        margin: 100px 0;
+    }
+    .photographypage .photography-info .item span{
+        right: 30px;
+        top: 30px;
+        font-size: 50px;
+    }
+    .photographypage .photography-info .item .videoItem{
+        padding: 30px;
+    }
+}

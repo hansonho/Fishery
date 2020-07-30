@@ -1,0 +1,29 @@
+.carousel-info{
+    margin-top: 40px;
+    height: 32vh;
+}
+.carousel-info div{
+    vertical-align: bottom;
+}
+.carousel-info .item{
+    text-align: center;
+}
+.carousel-info .item video,
+.carousel-info .item img{
+    width: 100%;
+    height: 32vh;
+}
+.carousel-info .hiddenIframe{
+    position: absolute;
+    z-index: -1;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .carousel-info{
+        margin-top: 50px;
+    }
+}
+@media screen and (min-width: 1080px) and (max-width: 1080px){
+    .carousel-info{
+        margin-top: 100px;
+    }
+}

@@ -1,0 +1,116 @@
+body{
+    background-color: #000;
+}
+.homepage{
+    height: calc(100vh - 40px);
+}
+.homepage .park-btn{
+    width: 10%;
+    max-width: 120px;
+    position: fixed;
+    z-index: 99;
+    top: 50px;
+    left: 10px;
+}
+.homepage .park-btn img{
+    width: 100%;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .homepage{
+        height: calc(100vh - 50px);
+    }
+    .homepage .park-btn{
+        max-width: 120px;
+        top: 60px;
+    }
+}
+@media screen and (min-width: 1080px) and (max-width: 1080px){
+    .homepage{
+        height: calc(100vh - 100px);
+    }
+    .homepage .park-btn{
+        max-width: 120px;
+        top: 120px;
+        left: 20px;
+    }
+}
+/* homebtn link */
+.homelink-info{
+    height: calc(100vh - 32vh - 40px - 40px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px 0;
+    box-sizing: border-box;
+}
+.homelink-info .item{
+    width: 50%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin: auto;
+    border-radius: 20px;
+}
+.homelink-info .item img{
+    width: 100%;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .homelink-info{
+        height: calc(100vh - 32vh - 50px - 50px);
+    }
+    .homelink-info .item{
+        width: 40%;
+    }
+}
+@media screen and (min-width: 1080px) and (max-width: 1080px){
+    .homelink-info{
+        height: calc(100vh - 32vh - 100px - 90px);
+    }
+    .homelink-info .item{
+        padding: 0 30px;
+    }
+}
+
+/* marquee css */
+.homepage .marquee-info{
+    padding: 10px 0px;
+    background-color: rgb(37, 29, 26);
+    color: #fff;
+}
+.homepage .marquee-info .item{
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.homepage .marquee-info .item span{
+    width: 100%;
+    position: absolute;
+    animation: marqueestart 15s linear infinite;
+    font-size: 14px;
+    top: 50%;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .homepage .marquee-info .item{
+        height: 30px;
+    }
+    .homepage .marquee-info .item span{
+        font-size: 18px;
+    }
+}
+@media screen and (min-width: 1080px) and (max-width: 1080px){
+    .homepage .marquee-info .item{
+        height: 70px;
+    }
+    .homepage .marquee-info .item span{
+        font-size: 32px;
+    }
+}
+@keyframes marqueestart {
+    from{
+        left:100%;
+        transform: translate(0%, -50%);
+    }
+    to{
+        left:0%;
+        transform: translate(-100%, -50%);
+    }
+}

@@ -1,0 +1,23 @@
+.activitypage .activity-info {
+    margin-top: 40px;
+}
+.activitypage .item img{
+    width: 100%;
+    height: calc(100vh - 40px - 40px);
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .activitypage .activity-info {
+        margin-top: 50px;
+    }
+    .activitypage .item img{
+        height: calc(100vh - 50px - 50px);
+    }
+}
+@media screen and (min-width: 1080px) and (max-width: 1080px){
+    .activitypage .activity-info {
+        margin-top: 100px;
+    }
+    .activitypage .item img{
+        height: calc(100vh - 100px - 100px);
+    }
+}
