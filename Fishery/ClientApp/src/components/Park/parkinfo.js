@@ -1,20 +1,30 @@
 import React, { useState, useEffect } from 'react';
 
 function Parkinfo() {
-  const [park, setPark] = useState([]);
-  useEffect(() => {
+    const [park, setPark] = useState([]);
+    const [fetchStatus, setFetchStatus] = useState(false);
     async function fetchData() {
-      const response = await fetch('/api/parkingspace', {
-        method: 'GET',
-        headers: new Headers({
-          'Content-Type': 'application/json',
-        }),
-      });
-      const json = await response.json();
-      setPark(json.Data);
+        const response = await fetch('/api/parkingspace', {
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+            }),
+        });
+        const json = await response.json();
+        setPark(json.Data);
     }
-    fetchData();
-  },[]);
+    useEffect(() => {
+        if (!fetchStatus) {
+            fetchData();
+            setFetchStatus(true);
+        }
+        const fetInterval = setInterval(() => {
+            fetchData();
+        }, 60000)
+        return () => {
+            clearInterval(fetInterval);
+        }
+    },[]);
     /*
   let parkinfo = {
     "Data": [
@@ -42,6 +52,7 @@ function Parkinfo() {
     ]
   }
   */
+    console.log(park)
   return (
     <div className="park-info">
         {park.map((e, i) => {
