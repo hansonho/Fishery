@@ -2,20 +2,20 @@ import React, { useState, useEffect } from 'react';
 
 function Parkinfo() {
   const [park, setPark] = useState([]);
-  /*useEffect(() => {
+  useEffect(() => {
     async function fetchData() {
-      const response = await fetch(' /api/parkingspace', {
+      const response = await fetch('/api/parkingspace', {
         method: 'GET',
         headers: new Headers({
           'Content-Type': 'application/json',
         }),
       });
       const json = await response.json();
-      const data = JSON.parse(json);
-      setPark([...park, data.Data]);
+      setPark(json.Data);
     }
     fetchData();
-  });*/
+  },[]);
+    /*
   let parkinfo = {
     "Data": [
       {
@@ -41,9 +41,10 @@ function Parkinfo() {
       }
     ]
   }
+  */
   return (
     <div className="park-info">
-      {parkinfo.Data.map((e, i) => {
+        {park.map((e, i) => {
         /* let parkDetail = 'park-detail';
         if (e.ParkingSpace < 10) {
           parkDetail += ' nopark'
@@ -60,8 +61,16 @@ function Parkinfo() {
             </div>
           );
         } else {
-          console.log(e)
-          return null;
+            return (
+                <div className="item" key={i}>
+                    <div className="park-name">
+                        <p>{e.ParkingName}</p>
+                    </div>
+                    <div className="park-detail nopark">
+                        <span>{`資料有誤`}</span>
+                    </div>
+                </div>
+            );
         }
       })}
     </div>
