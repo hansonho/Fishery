@@ -7,13 +7,37 @@ body{
 .homepage .park-btn{
     width: 10%;
     max-width: 120px;
-    position: fixed;
+    position: absolute;
     z-index: 99;
     top: 50px;
     left: 10px;
+    animation-name: bouncing;
+    animation-duration:2s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
 }
 .homepage .park-btn img{
     width: 100%;
+}
+@keyframes bouncing {
+    0% {
+        top: 50px;
+    }
+    50% {
+        top: 50px;
+    }
+    62.5%{
+        top: 40px;
+    }
+    75%{
+        top: 50px;
+    }
+    87.5%{
+        top: 45px;
+    }
+    100%{
+        top: 50px;
+    }
 }
 @media screen and (min-width: 768px) and (max-width: 1024px){
     .homepage{
@@ -22,6 +46,31 @@ body{
     .homepage .park-btn{
         max-width: 120px;
         top: 60px;
+    }
+    @keyframes bouncing {
+        0% {
+            top: 60px;
+        }
+
+        50% {
+            top: 60px;
+        }
+
+        62.5% {
+            top: 50px;
+        }
+
+        75% {
+            top: 60px;
+        }
+
+        87.5% {
+            top: 55px;
+        }
+
+        100% {
+            top: 60px;
+        }
     }
 }
 @media screen and (min-width: 1080px) and (max-width: 1080px){
