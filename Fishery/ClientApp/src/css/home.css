@@ -130,13 +130,13 @@ body{
     position: relative;
     overflow: hidden;
 }
-.homepage .marquee-info .item span{
-    width: 100%;
-    position: absolute;
-    animation: marqueestart 15s linear infinite;
-    font-size: 14px;
-    top: 50%;
-}
+    .homepage .marquee-info .item span {
+        position: absolute;
+        animation: marqueestart 15s linear infinite;
+        font-size: 14px;
+        top: 50%;
+        white-space: nowrap;
+    }
 @media screen and (min-width: 768px) and (max-width: 1024px){
     .homepage .marquee-info .item{
         height: 30px;
