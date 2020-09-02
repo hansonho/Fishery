@@ -10,6 +10,15 @@ function Btnlink(props) {
         <div className={className}>
             {picData.map((e) => {
                 if (e.src.split('.').length > 1) {
+                    if (e.alt == 'livebroadcast') {
+                        return (
+                            <div key={e.index} className="item">
+                                <a href={e.href} target="_blank" rel="noreferrer noopener">
+                                    <img src={e.src} alt={e.alt} />
+                                </a>
+                            </div>
+                        );
+                    }
                     return (
                         <div key={e.index} className="item">
                             <a href={e.href}>
