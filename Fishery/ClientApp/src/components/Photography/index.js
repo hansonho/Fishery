@@ -3,10 +3,10 @@ import React, { useEffect } from 'react';
 import Header from '../Share/header';
 import Footer from '../Share/footer';
 
-import video1 from '../../media/Photography/DSC_1817.MOV';
-import video2 from '../../media/Photography/DSC_1819.MOV';
-import video3 from '../../media/Photography/P6060001.MOV';
-import video4 from '../../media/Photography/P6060013.MOV';
+import video1 from '../../media/Photography/DSC_1817.mp4';
+import video2 from '../../media/Photography/DSC_1819.mp4';
+import video3 from '../../media/Photography/P6060001.mp4';
+import video4 from '../../media/Photography/P6060013.mp4';
 
 function Broad() {
     const mediaData = [

@@ -16,6 +16,62 @@ import parking from '../../media/HomeBtnImg/parking.png';
 // import video from '../../media/Carousel/h264.480.60s.mp4';
 
 function Home() {
+    const carouselData = [
+        {
+            index: 0,
+            type: 'pic',
+            src: Loop1,
+            alt: 'Loop1'
+        },
+    ];
+    if (window.screen.width === 1080) {
+        const picData = [
+            {
+                index: 0,
+                src: sights,
+                alt: 'scenic',
+                href: '/scenic.html',
+            },
+            {
+                index: 1,
+                src: food,
+                alt: 'food',
+                href: '/food.html',
+            },
+            {
+                index: 2,
+                src: entertainment,
+                alt: 'boat',
+                href: '/boat.html',
+            },
+            {
+                index: 3,
+                src: activity,
+                alt: 'activity',
+                href: '/activity',
+            },
+            {
+                index: 4,
+                src: broad,
+                alt: 'livebroadcast',
+                href: 'http://210.65.88.130:90/',
+                target: '_self',
+            },
+            {
+                index: 5,
+                src: photography,
+                alt: 'photography',
+                href: '/photography',
+            },
+        ];
+        return (
+            <div className="homepage">
+                <Carousel carouselData={carouselData} />
+                <Marquee />
+                <Btnlink className="homelink-info" picData={picData} />
+            </div>
+        );
+    }
     const picData = [
         {
             index: 0,
@@ -46,6 +102,7 @@ function Home() {
             src: broad,
             alt: 'livebroadcast',
             href: 'http://211.23.78.116:8587/getimage?stream=1&0.9126158323318647',
+            target: '_blank',
         },
         {
             index: 5,
@@ -54,34 +111,6 @@ function Home() {
             href: '/photography',
         },
     ];
-    const carouselData = [
-        {
-            index: 0,
-            type: 'pic',
-            src: Loop1,
-            alt: 'Loop1'
-        },
-        /*{
-            index: 1,
-            type: 'pic',
-            src: Loop2,
-            alt: 'Loop2'
-        },
-        {
-            index: 2,
-            type: 'video',
-            src: video,
-        }*/
-    ];
-    if (window.screen.width === 1080) {
-        return (
-            <div className="homepage">
-                <Carousel carouselData={carouselData} />
-                <Marquee />
-                <Btnlink className="homelink-info" picData={picData} />
-            </div>
-        );
-    }
     return (
         <div className="homepage">
             <Carousel carouselData={carouselData} />

@@ -13,7 +13,7 @@ function Btnlink(props) {
                     if (e.alt == 'livebroadcast') {
                         return (
                             <div key={e.index} className="item">
-                                <a href={e.href} target="_blank" rel="noreferrer noopener">
+                                <a href={e.href} target={e.target} rel="noreferrer noopener">
                                     <img src={e.src} alt={e.alt} />
                                 </a>
                             </div>
@@ -29,9 +29,9 @@ function Btnlink(props) {
                 }
                 return (
                     <div key={e.index} className="item">
-                        <Link to={e.href}>
+                        <a href={e.href}>
                             <img src={e.src} alt={e.alt} />
-                        </Link>
+                        </a>
                     </div>
                 );
             })}
