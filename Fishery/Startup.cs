@@ -54,6 +54,7 @@ namespace Fishery
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

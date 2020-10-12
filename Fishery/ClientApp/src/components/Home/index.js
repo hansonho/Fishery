@@ -14,6 +14,7 @@ import Loop1 from '../../media/Carousel/loop_1.jpg';
 // import Loop2 from '../../media/Carousel/loop_2.jpg';
 import parking from '../../media/HomeBtnImg/parking.png';
 // import video from '../../media/Carousel/h264.480.60s.mp4';
+import exerciseTaipei from '../../media/Carousel/exercise-taipei.png';
 
 function Home() {
     const carouselData = [
@@ -23,6 +24,12 @@ function Home() {
             src: Loop1,
             alt: 'Loop1'
         },
+        {
+            index: 1,
+            type: 'pic',
+            src: exerciseTaipei,
+            alt: '110年全國運動會在新北'
+        }
     ];
     if (window.screen.width === 1080) {
         const picData = [
