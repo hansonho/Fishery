@@ -1,0 +1,30 @@
+﻿@model Fishery.Models.Boat
+
+
+<h2>編輯船班</h2>
+
+<form asp-action="Save" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label>代碼</label><input class="form-control" asp-for="Code" />
+    </div>
+    <div class="form-group">
+        <label>船名</label><input class="form-control" asp-for="BoatName" />
+    </div>
+    <div class="form-group">
+        <label>負責人</label><input class="form-control" asp-for="Name" />
+    </div>
+    <div class="form-group">
+        <label>電話</label><input class="form-control" asp-for="Phone" />
+    </div>
+    <div class="form-group">
+        <label>執照期限</label><input class="form-control" asp-for="LicenceExpired" />
+    </div>
+    <div class="form-group">
+        <label>船籍</label><input class="form-control" asp-for="Belong" />
+    </div>
+
+
+    <input type="submit" value="儲存" class="btn btn-primary" />
+    <a asp-action="Index" class="btn btn-success">返回列表</a>
+</form>

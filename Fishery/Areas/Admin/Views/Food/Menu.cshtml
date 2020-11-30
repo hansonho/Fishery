@@ -1,0 +1,28 @@
+﻿@model List<Fishery.Models.FoodMenu>
+
+<h2>@(ViewData["name"]) 菜單</h2>
+
+
+<a asp-action="MenuCreate" asp-route-id="@(ViewData["foodid"])">新增菜色</a>
+<Table>
+    <tr>
+        <th>名稱</th>
+        <th>選單圖片(1080x630)</th>
+        <th>描述</th>
+        <th></th>
+    </tr>
+    <tbody>
+        @foreach (var o in Model)
+        {
+            <tr>
+                <td>@(o.Name)</td>
+                <td><img class="pic-thumb" src="~/images/foods/@(o.Pic1)" /></td>
+                <td>@(o.Desc)</td>
+                <td>
+                    <a asp-action="MenuEdit" asp-route-id="@(o.Id)">編輯</a><br />
+                    <a asp-action="MenuDelete" asp-route-id="@(o.Id)">刪除</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</Table>

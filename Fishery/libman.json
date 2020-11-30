@@ -9,6 +9,27 @@
     {
       "library": "jquery@3.5.1",
       "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "font-awesome@5.15.1",
+      "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "tempusdominus-bootstrap-4@5.39.0",
+      "destination": "wwwroot/lib/tempusdominus-bootstrap-4/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "bootstrap@4.5.3",
+      "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "library": "overlayscrollbars@1.13.0",
+      "destination": "wwwroot/lib/overlayscrollbars/"
+    },
+    {
+      "library": "jqueryui@1.12.1",
+      "destination": "wwwroot/lib/jqueryui/"
     }
   ]
 }
