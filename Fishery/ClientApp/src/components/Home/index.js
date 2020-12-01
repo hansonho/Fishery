@@ -21,14 +21,14 @@ function Home() {
         {
             index: 0,
             type: 'pic',
-            src: Loop1,
-            alt: 'Loop1'
+            src: exerciseTaipei,
+            alt: '110年全國運動會在新北'
         },
         {
             index: 1,
             type: 'pic',
-            src: exerciseTaipei,
-            alt: '110年全國運動會在新北'
+            src: Loop1,
+            alt: 'Loop1'
         }
     ];
     if (window.screen.width === 1080) {
