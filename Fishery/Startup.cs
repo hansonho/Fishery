@@ -72,7 +72,7 @@ namespace Fishery
                 endpoints.MapAreaControllerRoute(
                     name: "Admin",
                     areaName: "Admin",
-                    pattern: "Admin/{controller=Food}/{action=Index}/{id?}"
+                    pattern: "Admin/{controller=Home}/{action=Index}/{id?}"
                     );
                 endpoints.MapControllerRoute(
                     name: "default",

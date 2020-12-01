@@ -9,14 +9,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Fishery.Areas.Controllers
+namespace Fishery.Areas.Admin.Controllers
 {
     public class FoodController : Controller
     {
-        private readonly IHostingEnvironment _env;
+        private readonly IWebHostEnvironment _env;
         private readonly FisheryContext _context;
 
-        public FoodController(IHostingEnvironment env, FisheryContext context)
+        public FoodController(IWebHostEnvironment env, FisheryContext context)
         {
             _env = env;
             _context = context;
@@ -92,7 +92,7 @@ namespace Fishery.Areas.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View("~/Areas/Admin/Views/Manage/Edit.cshtml", model.food.Id);
+            return View("~/Areas/Admin/Views/Food/Edit.cshtml", model.food.Id);
         }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace Fishery.Areas.Controllers
                      FoodId = id
                 }
             };
-            return View("~/Areas/Admin/Views/Manage/MenuEdit.cshtml", model);
+            return View("~/Areas/Admin/Views/Food/MenuEdit.cshtml", model);
         }
 
         public IActionResult MenuSave(FoodMenuPageModel model)
@@ -184,9 +184,25 @@ namespace Fishery.Areas.Controllers
             }
             else
             { 
-                return View("~/Areas/Admin/Views/Manage/MenuEdit.cshtml", model); 
+                return View("~/Areas/Admin/Views/Food/MenuEdit.cshtml", model); 
             }
             
+        }
+
+        public IActionResult Delete(int id)
+        {
+            // 先刪除所有菜單
+            _context.FoodMenu.RemoveRange(_context.FoodMenu.Where(a => a.FoodId == id));
+            _context.Food.Remove(_context.Food.Find(id));
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult MenuDelete(int id)
+        {
+            _context.FoodMenu.Remove(_context.FoodMenu.Find(id));
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
     }

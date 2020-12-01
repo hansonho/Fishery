@@ -20,9 +20,22 @@
                 <td>@(o.Desc)</td>
                 <td>
                     <a asp-action="MenuEdit" asp-route-id="@(o.Id)">編輯</a><br />
-                    <a asp-action="MenuDelete" asp-route-id="@(o.Id)">刪除</a>
+                    <a asp-action="MenuDelete" asp-route-id="@(o.Id)" onclick="notice(event)">刪除</a>
                 </td>
             </tr>
         }
     </tbody>
 </Table>
+
+<script>
+        function notice(e) {
+
+            if (confirm('確認要刪除這筆資料 ? ')) {
+                return true;
+            }
+            else {
+                e.preventDefault();
+                return false;
+            }
+        }
+</script>

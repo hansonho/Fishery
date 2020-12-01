@@ -8,13 +8,13 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Fishery.Areas.Controllers
+namespace Fishery.Areas.Admin.Controllers
 {
     public class UserController : Controller
     {
         public IActionResult Index(LoginModel model)
         {
-            if (User.Identity.IsAuthenticated) return RedirectToAction(actionName: "Index", controllerName: "Food");
+            if (User.Identity.IsAuthenticated) return RedirectToAction(actionName: "Index", controllerName: "Home");
 
             return View(model);
         }
@@ -48,6 +48,12 @@ namespace Fishery.Areas.Controllers
             {
                 return View("~/Areas/Admin/Views/User/Index.cshtml", model);
             }
+        }
+
+        public async Task<IActionResult> LogoutAsync()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index");
         }
 
         public class LoginModel

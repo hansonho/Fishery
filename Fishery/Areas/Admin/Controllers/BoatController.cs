@@ -46,5 +46,12 @@ namespace Fishery.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(int id)
+        {
+            _context.Boat.Remove(_context.Boat.Find(id));
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

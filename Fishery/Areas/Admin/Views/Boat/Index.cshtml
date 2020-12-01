@@ -18,18 +18,34 @@
     <tbody>
         @foreach (var o in Model)
         {
-        <tr>
-            <td>@(o.Code)</td>
-            <td>@(o.BoatName)</td>
-            <td>@(o.Name)</td>
-            <td>@(o.Phone)</td>
-            <td>@(o.LicenceExpired)</td>
-            <td>@(o.Belong)</td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@(o.Id)">編輯</a><br />
-                <a asp-action="Delete" asp-route-id="@(o.Id)">刪除</a>
-            </td>
-        </tr>
+            <tr>
+                <td>@(o.Code)</td>
+                <td>@(o.BoatName)</td>
+                <td>@(o.Name)</td>
+                <td>@(o.Phone)</td>
+                <td>@(o.LicenceExpired)</td>
+                <td>@(o.Belong)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@(o.Id)">編輯</a><br />
+                    <a asp-action="Delete" asp-route-id="@(o.Id)" onclick="notice(event)">刪除</a>
+                </td>
+            </tr>
         }
     </tbody>
 </Table>
+
+@section Scripts
+{
+    <script>
+        function notice(e) {
+            
+            if (confirm('確認要刪除這筆資料 ? ')) {
+                return true;
+            }
+            else {
+                e.preventDefault();
+                return false;
+            }
+        }
+    </script>
+}
