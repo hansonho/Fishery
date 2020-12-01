@@ -1,0 +1,74 @@
+﻿@model Fishery.Areas.Admin.Controllers.ScenicPageModel
+
+
+<h2>編輯景點</h2>
+
+<form asp-action="Save" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="ScenicSpot.Id" />
+    <input type="hidden" asp-for="ScenicSpot.Cover" />
+    <input type="hidden" asp-for="ScenicSpot.Pic1" />
+    <input type="hidden" asp-for="ScenicSpot.Pic2" />
+    <input type="hidden" asp-for="ScenicSpot.Pic3" />
+    <div class="form-group">
+        <label>景點名稱</label><input class="form-control" asp-for="ScenicSpot.Name" />
+    </div>
+    <div class="form-group">
+        <label>封面選單照片,請上傳 寬198px高191px圖片</label>
+        <p>
+            <img class="w-20" src="~/images/scenics/@(Model.ScenicSpot.Cover)">
+        </p>
+        <input type="file" asp-for="Cover" accept="image/*" />
+    </div>
+    <div class="form-group">
+        <label>景點描述</label><input class="form-control" asp-for="ScenicSpot.Desc" />
+    </div>
+    <div class="form-group">
+        <label>景點描述搭配照1</label>
+        <p>
+            <img class="w-50" src="~/images/scenics/@(Model.ScenicSpot.Pic1)">
+        </p>
+        <input type="file" asp-for="Pic1" accept="image/*" />
+    </div>
+    <div class="form-group">
+        <label>景點描述搭配照2</label>
+        <p>
+            <img class="w-50" src="~/images/scenics/@(Model.ScenicSpot.Pic2)">
+        </p>
+        <input type="file" asp-for="Pic2" accept="image/*" />
+    </div>
+    <div class="form-group">
+        <label>景點描述搭配照3</label>
+        <p>
+            <img class="w-50" src="~/images/scenics/@(Model.ScenicSpot.Pic3)">
+        </p>
+        <input type="file" asp-for="Pic3" accept="image/*" />
+    </div>
+
+    <div class="form-group">
+        <label>排序號</label><input class="form-control" asp-for="ScenicSpot.Seq" />
+    </div>
+
+    <input type="submit" value="儲存" class="btn btn-primary" />
+    <a asp-action="Index" class="btn btn-success">返回列表</a>
+</form>
+
+@section Scripts
+{
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(input).prev().find("img").attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+    }
+
+    $("input[type='file']").change(function () {
+        readURL(this);
+    });
+</script>
+}

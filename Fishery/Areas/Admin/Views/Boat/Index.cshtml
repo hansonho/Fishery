@@ -1,0 +1,51 @@
+﻿@model List<Fishery.Models.Boat>
+@{
+}
+
+<h2>船班列表</h2>
+
+<a asp-action="Create">新增船班</a>
+<Table>
+    <tr>
+        <th>代碼</th>
+        <th>船名</th>
+        <th>負責人</th>
+        <th>電話</th>
+        <th>有效期</th>
+        <th>船籍</th>
+        <th></th>
+    </tr>
+    <tbody>
+        @foreach (var o in Model)
+        {
+            <tr>
+                <td>@(o.Code)</td>
+                <td>@(o.BoatName)</td>
+                <td>@(o.Name)</td>
+                <td>@(o.Phone)</td>
+                <td>@(o.LicenceExpired)</td>
+                <td>@(o.Belong)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@(o.Id)">編輯</a><br />
+                    <a asp-action="Delete" asp-route-id="@(o.Id)" onclick="notice(event)">刪除</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</Table>
+
+@section Scripts
+{
+    <script>
+        function notice(e) {
+            
+            if (confirm('確認要刪除這筆資料 ? ')) {
+                return true;
+            }
+            else {
+                e.preventDefault();
+                return false;
+            }
+        }
+    </script>
+}

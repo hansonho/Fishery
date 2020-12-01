@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import Slider from "react-slick";
 
 import '../../css/carousel.css';
 
-function Carousel(props) {
-    const {
-        carouselData
-    } = props;
+function Carousel() {
     const [autopPlaySpeed, setAutoPlaySpeed] = useState(5000);
+    const [carouselData, setCarouselData] = useState([]);
     const settings = {
         dots: false,
         infinite: true,
@@ -27,23 +25,40 @@ function Carousel(props) {
                 setAutoPlaySpeed(5000);
             }
         },
-      };
+    };
+
+    useEffect(() => {
+        fetch('api/Carousels')
+            .then(response => {
+                return response.json();
+            })
+            .then(json => {
+                setCarouselData(json);
+            })
+            .catch(err => {
+                console.error(err);
+            });
+    }, []);
+
+    //let carouselData = [{ "id": 1, "type": "pic", "src": "loop_1.jpg", "alt": "Loop1" }, { "id": 2, "type": "pic", "src": "exercise-taipei.png", "alt": "110年全國運動會在新北" }];
+
+
     return (
         <div className="carousel-info">
             <Slider {...settings}>
                 {carouselData.map((e) => {
                     if (e.type === 'pic') {
                         return (
-                            <div key={e.index} className="item">
-                                <img src={e.src} alt={e.alt} />
+                            <div key={e.id} className="item">
+                                <img src={"/images/carousel/"+e.src} alt={e.alt} />
                             </div>
                         );
                     }
                     return (
-                        <div key={e.index} className="item">
+                        <div key={e.id} className="item">
                             {/* <iframe className="hiddenIframe" src={e.src} allow="autoplay" title="hiddenVideo"></iframe> */}
                             <video autoPlay muted>
-                                <source src={e.src} type="video/mp4" />
+                                <source src={"/images/carousel/" +e.src} type="video/mp4" />
                             </video>
                         </div>
                     );

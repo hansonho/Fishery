@@ -10,13 +10,11 @@ import entertainment from '../../media/HomeBtnImg/entertainment.png';
 import food from '../../media/HomeBtnImg/food.png';
 import photography from '../../media/HomeBtnImg/photography.png';
 import sights from '../../media/HomeBtnImg/sights.png';
-import Loop1 from '../../media/Carousel/loop_1.jpg';
-// import Loop2 from '../../media/Carousel/loop_2.jpg';
 import parking from '../../media/HomeBtnImg/parking.png';
 // import video from '../../media/Carousel/h264.480.60s.mp4';
-import exerciseTaipei from '../../media/Carousel/exercise-taipei.png';
 
 function Home() {
+         
     const carouselData = [
         {
             index: 0,
@@ -73,7 +71,7 @@ function Home() {
         ];
         return (
             <div className="homepage">
-                <Carousel carouselData={carouselData} />
+                <Carousel />
                 <Marquee />
                 <Btnlink className="homelink-info" picData={picData} />
             </div>
@@ -120,7 +118,7 @@ function Home() {
     ];
     return (
         <div className="homepage">
-            <Carousel carouselData={carouselData} />
+            <Carousel />
             <Marquee />
             <Btnlink className="homelink-info" picData={picData} />
             <div className="park-btn">

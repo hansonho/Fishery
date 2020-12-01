@@ -1,0 +1,44 @@
+﻿@model List<Fishery.Models.Food>
+@{
+}
+
+<h2>餐廳列表</h2>
+
+<a asp-action="Create" >新增餐廳</a>
+<Table>
+    <tr>
+        <th>名稱</th>
+        <th>選單圖片(933x215)</th>
+        <th>描述</th>
+        <th>排序</th>
+        <th>編輯</th>
+    </tr>
+    <tbody>
+       @foreach (var o in Model)
+       { 
+        <tr>
+            <td>@(o.Name)</td>
+            <td><img class="pic-thumb" src="~/images/foods/@(o.Cover)" /></td>
+            <td>@(o.Desc)</td>
+            <td>@(o.Seq)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@(o.Id)">編輯</a><br />
+                <a asp-action="Menu" asp-route-id="@(o.Id)">菜單</a><br />
+                <a asp-action="Delete" asp-route-id="@(o.Id)" onclick="notice(event)">刪除</a>
+            </td>
+        </tr>
+       }
+    </tbody>
+</Table>
+<script>
+        function notice(e) {
+
+            if (confirm('確認要刪除這筆資料 ? ')) {
+                return true;
+            }
+            else {
+                e.preventDefault();
+                return false;
+            }
+        }
+</script>

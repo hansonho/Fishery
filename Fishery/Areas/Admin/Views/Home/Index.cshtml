@@ -1,0 +1,53 @@
+﻿@model Fishery.Areas.Admin.Controllers.HomePageModel
+@{
+}
+
+<h2>跑馬燈</h2>
+
+<form asp-action="SaveMarquees" method="post">
+    <input type="hidden" asp-for="marquees.Id" />
+    <input type="hidden" asp-for="marquees.Seq" />
+    <div class="form-group">
+        <label>跑馬燈文字</label><input class="form-control" asp-for="marquees.Text" />
+    </div>
+
+    <input type="submit" value="儲存" class="btn btn-primary" />
+</form>
+
+<h2>輪播圖</h2>
+<a asp-action="CarouselCreate">新增輪播</a>
+<Table>
+    <tr>
+        <th>圖片</th>
+        <th>顯示文字</th>
+        <th>排序</th>
+        <th></th>
+    </tr>
+    <tbody>
+        @foreach (var o in Model.carousels)
+        {
+        <tr>
+            <td><img class="pic-thumb" src="~/images/carousel/@(o.Src)" /></td>
+            <td>@(o.Alt)</td>
+            <td>@(o.Seq)</td>
+            <td>
+                <a asp-action="CarouselEdit" asp-route-id="@(o.Id)">編輯</a><br />
+                <a asp-action="Delete" asp-route-id="@(o.Id)" onclick="notice(event)">刪除</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</Table>
+
+<script>
+        function notice(e) {
+
+            if (confirm('確認要刪除這筆資料 ? ')) {
+                return true;
+            }
+            else {
+                e.preventDefault();
+                return false;
+            }
+        }
+</script>

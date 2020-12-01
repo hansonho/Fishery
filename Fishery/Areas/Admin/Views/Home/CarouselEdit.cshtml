@@ -1,0 +1,46 @@
+﻿@model Fishery.Areas.Admin.Controllers.CarouselPageModel
+
+
+<h2>編輯輪播圖</h2>
+
+<form asp-action="CarouselSave" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="carousel.Id" />
+    <input type="hidden" asp-for="carousel.Type" />
+    <div class="form-group">
+        <label>顯示文字</label><input class="form-control" asp-for="carousel.Alt" />
+    </div>
+    <div class="form-group">
+        <label>圖片</label>
+        <p>
+            <img class="w-50" src="~/images/carousel/@(Model.carousel.Src)">
+        </p>
+        <input type="file" asp-for="Src" accept="image/*" />
+    </div>
+    <div class="form-group">
+        <label>排序號(數字越小越前面)</label><input class="form-control" asp-for="carousel.Seq" type="number" />
+    </div>
+    
+    <input type="submit" value="儲存" class="btn btn-primary" />
+    <a asp-action="Index" class="btn btn-success">返回列表</a>
+</form>
+
+@section Scripts
+{
+    <script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(input).prev().find("img").attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+    }
+
+    $("input[type='file']").change(function () {
+        readURL(this);
+    });
+    </script>
+}

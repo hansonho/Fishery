@@ -1,0 +1,24 @@
+﻿body {
+}
+
+table {
+    border:1px solid;
+    width:100%;
+}
+
+tr {
+
+}
+
+th, td {
+    border: 1px solid;
+    padding: 5px;
+}
+
+.form-group {
+    border-bottom:1px solid;
+}
+
+.pic-thumb {
+    max-width: 300px;
+}

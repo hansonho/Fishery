@@ -1,0 +1,50 @@
+﻿@model List<Fishery.Models.ScenicSpot>
+@{
+}
+
+<h2>景點列表</h2>
+
+<a asp-action="Create">新增景點</a>
+<Table>
+    <tr>
+        <th>景點名稱</th>
+        <th>封面照片(198x191)</th>
+        <th>描述</th>
+        <th>風景1</th>
+        <th>風景2</th>
+        <th>風景3</th>
+        <th>排序</th>
+        <th>編輯</th>
+    </tr>
+    <tbody>
+        @foreach (var o in Model)
+        {
+        <tr>
+            <td>@(o.Name)</td>
+            <td><img class="pic-thumb" src="~/images/scenics/@(o.Cover)" /></td>
+            <td>@(o.Desc)</td>
+            <td><img class="pic-thumb" src="~/images/scenics/@(o.Pic1)" /></td>
+            <td><img class="pic-thumb" src="~/images/scenics/@(o.Pic2)" /></td>
+            <td><img class="pic-thumb" src="~/images/scenics/@(o.Pic3)" /></td>
+            <td>@(o.Seq)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@(o.Id)">編輯</a><br />
+                <a asp-action="Delete" asp-route-id="@(o.Id)" onclick="notice(event)">刪除</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</Table>
+
+<script>
+        function notice(e) {
+
+            if (confirm('確認要刪除這筆資料 ? ')) {
+                return true;
+            }
+            else {
+                e.preventDefault();
+                return false;
+            }
+        }
+</script>
