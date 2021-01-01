@@ -11,7 +11,7 @@ namespace Fishery.Controllers
         public string Get()
         {
             WebClient webClient = new WebClient();
-            return webClient.DownloadString("http://180.218.133.164:50888/Parking/ParkingSpace");
+            return webClient.DownloadString("http://49.158.145.38:50888/Parking/ParkingSpace");
         }
     }
 }
