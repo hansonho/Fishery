@@ -14,7 +14,7 @@ import parking from '../../media/HomeBtnImg/parking.png';
 // import video from '../../media/Carousel/h264.480.60s.mp4';
 
 function Home() {
-         
+<<<<<<< HEAD
     const carouselData = [
         {
             index: 0,
@@ -29,6 +29,9 @@ function Home() {
             alt: 'Loop1'
         }
     ];
+=======
+         
+>>>>>>> c1b02441074e63707b31c315f642b34fcb26c441
     if (window.screen.width === 1080) {
         const picData = [
             {
